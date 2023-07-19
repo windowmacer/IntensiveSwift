@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stoplight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNB-7i-csk">
+                                <rect key="frame" x="112.5" y="38.5" width="150" height="150"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ARR-Qr-CWW"/>
+                                    <constraint firstAttribute="width" constant="150" id="Go9-sE-d7s"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ikO-jH-WPF">
+                                <rect key="frame" x="112.5" y="228.5" width="150" height="150"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="7l7-Aj-EPu"/>
+                                    <constraint firstAttribute="height" constant="150" id="qEG-ug-D7N"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjq-3J-0uK">
+                                <rect key="frame" x="112.5" y="418.5" width="150" height="150"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="maE-fP-YSh"/>
+                                    <constraint firstAttribute="width" constant="150" id="oNf-nS-8kh"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tro-bP-Cam">
+                                <rect key="frame" x="134" y="608.5" width="107" height="51"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Switch">
+                                    <fontDescription key="titleFontDescription" name="Kailasa" family="Kailasa" pointSize="28"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="switchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Quz-20-alg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ikO-jH-WPF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="63F-AG-qG2"/>
+                            <constraint firstItem="Tro-bP-Cam" firstAttribute="top" secondItem="Jjq-3J-0uK" secondAttribute="bottom" constant="40" id="8T7-MT-BNf"/>
+                            <constraint firstItem="ikO-jH-WPF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-40" id="98D-B2-zQ2"/>
+                            <constraint firstItem="Jjq-3J-0uK" firstAttribute="top" secondItem="ikO-jH-WPF" secondAttribute="bottom" constant="40" id="L2X-8T-sRa"/>
+                            <constraint firstItem="Jjq-3J-0uK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ofa-VH-qeW"/>
+                            <constraint firstItem="ikO-jH-WPF" firstAttribute="top" secondItem="jNB-7i-csk" secondAttribute="bottom" constant="40" id="YBC-ky-Ohr"/>
+                            <constraint firstItem="jNB-7i-csk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="leo-kf-Bhu"/>
+                            <constraint firstItem="Tro-bP-Cam" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sbW-R7-6gX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="greenView" destination="Jjq-3J-0uK" id="lLP-rb-eDK"/>
+                        <outlet property="orangeView" destination="ikO-jH-WPF" id="Sqv-ou-ctG"/>
+                        <outlet property="redView" destination="jNB-7i-csk" id="2XB-Ah-PM3"/>
+                        <outlet property="switchButton" destination="Tro-bP-Cam" id="YuB-4m-hws"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-53" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
