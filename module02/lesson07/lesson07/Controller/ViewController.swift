@@ -48,7 +48,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 		cell.userName.text = arrayData[indexPath.row].name
 		cell.userMessege.text = arrayData[indexPath.row].textMessege
 		cell.userImage.image = UIImage(named: arrayData[indexPath.row].image)
-		
 		return cell
 	}
 }

@@ -42,7 +42,7 @@ class DataCell: UITableViewCell {
 		self.contentView.addSubview(mainStack)
 		mainStack.axis = .horizontal
 		mainStack.spacing = 20
-		
+		mainStack.alignment = .leading
 		mainStack.addArrangedSubview(userImage)
 		mainStack.addArrangedSubview(textStack)
 		
@@ -61,7 +61,6 @@ class DataCell: UITableViewCell {
 	
 	func getImage(w: CGFloat = 60, h: CGFloat = 60, r: CGFloat = 15) {
 		userImage.translatesAutoresizingMaskIntoConstraints = false
-		
 		userImage.widthAnchor.constraint(equalToConstant: w).isActive = true
 		userImage.heightAnchor.constraint(equalToConstant: h).isActive = true
 		userImage.layer.cornerRadius = r
