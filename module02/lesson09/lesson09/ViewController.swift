@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 	private var mainColor: UIColor = .gray
 	
 	private var arrayImage = ["image1", "image2", "image3", "image4", "image5"]
+	private var arrayText = ["Александр Блок", "Бесцельный путь синеет предо мной,", "Далекий путь, потоками изрытый,", "А дальше — мрак и в этом мраке скрытый,", "Парит судеб Вершитель роковой."]
 	
 	lazy var pager: UIPageControl = {
 		let pager = UIPageControl()
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
 		pager.currentPageIndicatorTintColor = .white
 		pager.backgroundColor = UIColor(white: 1, alpha: 0.5)
 		pager.layer.cornerRadius = CGFloat(Int(view.frame.height / 44))
+		pager.isEnabled = false
 		
 		return pager
 	}()
@@ -40,7 +42,6 @@ class ViewController: UIViewController {
 			pager.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: (view.frame.height / -8)),
 			pager.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			pager.heightAnchor.constraint(equalToConstant: CGFloat(Int(view.frame.height / 22)))
-			
 		])
 	}
 	
@@ -55,7 +56,7 @@ class ViewController: UIViewController {
 		view.addSubview(collectionView)
 		
 		collectionView.dataSource = self
-//		collectionView.delegate =
+		collectionView.delegate = self
 		collectionView.contentInsetAdjustmentBehavior = .never
 		collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "slide")
 		collectionView.isPagingEnabled = true
@@ -80,12 +81,16 @@ extension ViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slide", for: indexPath) as! CollectionCell
-		cell.backgroundColor = .red
-		
+
 		cell.setupCell(image: arrayImage[indexPath.row])
-		
+		cell.setTextLabel(text: arrayText[indexPath.row])
 		return cell
 	}
-	
-	
+}
+
+extension ViewController: UICollectionViewDelegate {
+	func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+		let pagerNum = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+		pager.currentPage = Int(pagerNum)
+	}
 }
