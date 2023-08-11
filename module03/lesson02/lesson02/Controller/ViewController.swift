@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
 		])
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+		tableView.register(TableCell.self, forCellReuseIdentifier: "cell")
 		tableView.dataSource = self
 		tableView.delegate = self
 	}
@@ -46,8 +46,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		cell.textLabel?.text = arrayNews[indexPath.row].title
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableCell
+//		cell.textLabel?.text = arrayNews[indexPath.row].title
+		cell.titleLabel.text = arrayNews[indexPath.row].title
+		cell.descriptionLabel.text = arrayNews[indexPath.row].description
 		return cell
 	}
 	
