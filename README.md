@@ -47,3 +47,11 @@
 Урок 1 - singleton, notificatoinCenter.
 
 Урок 2 - URLSession.
+
+Урок 3 - Alamofire, sdWebImage.
+
+Урок 4 - Хранение данных.
+
+Урок 5 - Realm.
+
+Урок 6 - Realm, часть 2.
