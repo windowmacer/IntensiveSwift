@@ -3,15 +3,24 @@ import UIKit
 
 class CollectionCell: UICollectionViewCell {
 	
-	var imageCell: UIImage?
-	private var imageViewTitle = UIImageView()
+	var imageViewTitle = UIImageView()
+	var contentHeight = CGFloat()
+	var contentWidth = CGFloat()
 	
 	private var textTitle = UILabel()
 	private var textAuthor = UILabel()
 	private var textData = UILabel()
 	private var textContext = UILabel()
 	
-	private var button = UIButton()
+	lazy var button: UIButton = {
+		let button = UIButton()
+		button.setTitle("Читать новость", for: .normal)
+		button.setTitleColor(.white, for: .normal)
+		button.backgroundColor = #colorLiteral(red: 0.9853208661, green: 0.5047547221, blue: 0.356146872, alpha: 1)
+		button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+		button.layer.cornerRadius = 20
+		return button
+	}()
 	
 	private var mainStack = UIStackView()
 	private var textSignHStack = UIStackView()
@@ -35,11 +44,9 @@ class CollectionCell: UICollectionViewCell {
 			textContext.text = text
 		}
 		setupText()
+		setupImageView()
 		setupMainStack()
-		setupSignHStack()
-		setupSignVStack()
 		addMainStack()
-		
 	}
 	
 	private func setupText() {
@@ -50,11 +57,30 @@ class CollectionCell: UICollectionViewCell {
 			label.lineBreakMode = .byWordWrapping
 			label.font = .systemFont(ofSize: 12)
 			label.textColor = .black
+			label.textAlignment = .left
 		}
 		
 		textTitle.font = .boldSystemFont(ofSize: 16)
 		textAuthor.textColor = .systemGray
 		textData.textColor = .systemGray
+		textData.textAlignment = .right
+		textContext.textAlignment = .natural
+	}
+	
+	private func setupImageView() {
+		contentView.addSubview(imageViewTitle)
+		imageViewTitle.layer.cornerRadius = 15
+		imageViewTitle.clipsToBounds = true
+		imageViewTitle.contentMode = .scaleAspectFill
+		imageViewTitle.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			imageViewTitle.topAnchor.constraint(equalTo: contentView.topAnchor),
+			imageViewTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			imageViewTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			imageViewTitle.heightAnchor.constraint(greaterThanOrEqualToConstant: 50),
+			imageViewTitle.heightAnchor.constraint(lessThanOrEqualToConstant: 150)
+		])
 	}
 	
 	private func setupMainStack() {
@@ -62,22 +88,34 @@ class CollectionCell: UICollectionViewCell {
 		
 		mainStack.axis = .vertical
 		mainStack.alignment = .fill
-		mainStack.distribution = .fillEqually
+		mainStack.distribution = .fill
 		mainStack.spacing = 10
-		
+
 		mainStack.translatesAutoresizingMaskIntoConstraints = false
+		contentView.translatesAutoresizingMaskIntoConstraints = false
+		
 		NSLayoutConstraint.activate([
-			mainStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-			mainStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 25),
-			mainStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25),
-			mainStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+			contentView.widthAnchor.constraint(equalToConstant: contentWidth),
+			contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight),
+			contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+			contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+			contentView.topAnchor.constraint(equalTo: self.topAnchor),
+			contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+			
+			mainStack.topAnchor.constraint(equalTo: imageViewTitle.bottomAnchor, constant: 20),
+			mainStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+			mainStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
 		])
+		
+		setupSignHStack()
+		setupSignVStack()
 	}
 	
 	private func setupSignVStack() {
 		textSignVStack.axis = .vertical
-		textSignVStack.alignment = .leading
-		textSignVStack.distribution = .equalSpacing
+		textSignVStack.alignment = .fill
+		textSignVStack.distribution = .equalCentering
+		textSignVStack.spacing = 10
 		
 		textSignVStack.addArrangedSubview(textSignHStack)
 		textSignVStack.addArrangedSubview(textAuthor)
@@ -95,5 +133,16 @@ class CollectionCell: UICollectionViewCell {
 	private func addMainStack() {
 		mainStack.addArrangedSubview(textSignVStack)
 		mainStack.addArrangedSubview(textContext)
+		contentView.addSubview(button)
+		
+		button.translatesAutoresizingMaskIntoConstraints = false
+		
+		NSLayoutConstraint.activate([
+			button.topAnchor.constraint(equalTo: mainStack.bottomAnchor, constant: 20),
+			button.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+			button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+			button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+			button.heightAnchor.constraint(equalToConstant: 40)
+		])
 	}
 }

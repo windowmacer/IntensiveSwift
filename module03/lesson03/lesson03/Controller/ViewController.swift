@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController {
 	
@@ -28,13 +29,12 @@ class ViewController: UIViewController {
 			}
 			self.collectionView.reloadData()
 		}
-		view.backgroundColor = .systemBackground
 		sizeCollectionSetup()
 		settupCollection()
 	}
 	
 	private func sizeCollectionSetup() {
-		widthCollection = view.frame.width - 20
+		widthCollection = view.bounds.width - 40
 		heightCollection = widthCollection * (9 / 16)
 		
 		widthCell = widthCollection * 0.9
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 		layout.scrollDirection = .vertical
 		layout.minimumLineSpacing = deltaW * 2
 		layout.minimumInteritemSpacing = deltaH * 2
-		layout.itemSize = CGSize(width: widthCollection, height: heightCollection)
+		layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 		
 		collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "cell")
@@ -60,18 +60,17 @@ class ViewController: UIViewController {
 		collectionView.dataSource = self
 		collectionView.backgroundColor = .white
 		
-		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addSubview(collectionView)
+		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		
 		NSLayoutConstraint.activate([
-			collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-			collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-			collectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-			collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+			collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+			collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+			collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+			collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
 		])
 	}
 }
-
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -81,20 +80,22 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCell
 		
+		cell.contentWidth = widthCollection
 		cell.contentView.backgroundColor = .systemGray.withAlphaComponent(0.35)
 		cell.contentView.layer.cornerRadius = 15
+		
+		if let imageURL = arrayNews[indexPath.row].urlToImage {
+			cell.contentHeight = heightCollection
+			cell.imageViewTitle.sd_setImage(with: URL(string: imageURL))
+		}
 		cell.setupCollectionCell(title: arrayNews[indexPath.row].title, author: arrayNews[indexPath.row].author, data: arrayNews[indexPath.row].publishedAt, context: arrayNews[indexPath.row].description)
 		
 		return cell
 	}
 	
-//	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//		return CGSize(width: widthCell, height: heightCell)
-//	}
-//	
-//	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//		return(UIEdgeInsets(top: deltaH, left: deltaW, bottom: deltaH, right: deltaW))
-//	}
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		return(UIEdgeInsets(top: deltaH, left: deltaW, bottom: deltaH, right: deltaW))
+	}
 
 	
 }
