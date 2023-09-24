@@ -55,3 +55,21 @@
 Урок 5 - Realm.
 
 Урок 6 - Realm, часть 2.
+
+Урок 7 - CoreData, часть 1 - видео
+
+Урок 8 - CoreData, часть 2 - видео
+
+# Модуль 4 - SwiftUI
+
+Урок 1 - Основы SwiftUI.
+
+Урок 2 - SwiftUI - state, textField, button.
+
+Урок 3 - Наблюдаемые объкты (binding).
+
+Урок 4 - Получение новостей (AsyncImage.LazyVStack).
+
+Урок 5 - TabView.
+
+Урок 6 - События в SwiftUI. Кастомные модификаторы.
