@@ -32,11 +32,10 @@ class ViewController: UIViewController {
 		return refreshView
 	}()
 
-	// MARK: - func Load
+	// MARK: - Load
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		view.backgroundColor = .white
 		title = "Notes"
 		navigationController?.navigationBar.prefersLargeTitles = true
 		
@@ -51,9 +50,12 @@ class ViewController: UIViewController {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNote))
 	}
 
-	// MARK: - func
+	// MARK: - custom func
 	
 	@objc private func addNote() {
+		let addNoteVC = AddNoteViewController()
+		
+		navigationController?.pushViewController(addNoteVC, animated: true)
 	}
 	
 	@objc func reloadTable() {
