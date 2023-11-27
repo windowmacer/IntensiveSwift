@@ -9,6 +9,8 @@ import UIKit
 
 class AddNoteViewController: UIViewController {
 	
+	private let serviceFB = ServiceFB()
+	
 	lazy private var titleField: UITextField = {
 		let field = UITextField()
 		field.placeholder = "title"
@@ -50,6 +52,8 @@ class AddNoteViewController: UIViewController {
 		button.setTitleColor(.clear, for: .highlighted)
 		button.titleLabel?.font = .boldSystemFont(ofSize: 16)
 		
+		button.addTarget(nil, action: #selector(addNode), for: .touchUpInside)
+		
 		return button
 	}()
 	
@@ -80,6 +84,17 @@ class AddNoteViewController: UIViewController {
     }
 	
 	// MARK: - custom func
+	
+	@objc func addNode() {
+		if let title = titleField.text, let text = textEditor.text {
+			let note = NoteFB(title: title, text: text, date: Date())
+			serviceFB.createNote(note: note) { status in
+				if status {
+					self.navigationController?.popViewController(animated: true)
+				}
+			}
+		}
+	}
 
 }
 

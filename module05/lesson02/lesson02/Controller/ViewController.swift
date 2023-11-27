@@ -9,7 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	private var tableData: [String] = ["1", "2", "3"]
+	private var noteData = [NoteFB]()
+//	private var tableData: [String] = ["1", "2", "3"]
+	
+	private let serviceFB = ServiceFB()
 	
 	lazy private var tableView: UITableView = {
 		let table = UITableView(frame: .zero, style: .insetGrouped)
@@ -48,9 +51,23 @@ class ViewController: UIViewController {
 		])
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNote))
+		
+		loadAddNote()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		loadAddNote()
 	}
 
 	// MARK: - custom func
+	
+	private func loadAddNote() {
+		serviceFB.readNotes { notes in
+			self.noteData = notes
+			self.tableView.reloadData()
+		}
+	}
 	
 	@objc private func addNote() {
 		let addNoteVC = AddNoteViewController()
@@ -59,6 +76,7 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func reloadTable() {
+		loadAddNote()
 		refresh.endRefreshing()
 	}
 }
@@ -66,16 +84,22 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		tableData.count
+		noteData.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-		cell.textLabel?.text = tableData[indexPath.row]
+		cell.textLabel?.text = noteData[indexPath.row].title
 		return cell
 	}
 	
-	
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			serviceFB.deleteNote(noteID: noteData[indexPath.row].id)
+			noteData.remove(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .automatic)
+		}
+	}
 	
 }
 
