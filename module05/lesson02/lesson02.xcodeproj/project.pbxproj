@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED41D0F02B1902E1005F17BA /* RedactNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41D0EF2B1902E1005F17BA /* RedactNoteViewController.swift */; };
 		ED6C0FF72B14FCE60029D524 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED6C0FF62B14FCE60029D524 /* GoogleService-Info.plist */; };
 		ED6C0FFA2B15059A0029D524 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = ED6C0FF92B15059A0029D524 /* FirebaseFirestore */; };
 		ED6C0FFC2B1506F00029D524 /* ServiceFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6C0FFB2B1506F00029D524 /* ServiceFB.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED41D0EF2B1902E1005F17BA /* RedactNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactNoteViewController.swift; sourceTree = "<group>"; };
 		ED6C0FF62B14FCE60029D524 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED6C0FFB2B1506F00029D524 /* ServiceFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServiceFB.swift; path = lesson02/Core/ServiceFB.swift; sourceTree = SOURCE_ROOT; };
 		ED6C0FFD2B1507BF0029D524 /* NoteFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteFB.swift; path = lesson02/Core/NoteFB.swift; sourceTree = SOURCE_ROOT; };
@@ -108,6 +110,7 @@
 			children = (
 				ED8409582B0D2E2F00AD0491 /* NoteViewController.swift */,
 				EDAA3D692B0DD6620071BE7C /* AddNoteViewController.swift */,
+				ED41D0EF2B1902E1005F17BA /* RedactNoteViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED8409592B0D2E2F00AD0491 /* NoteViewController.swift in Sources */,
+				ED41D0F02B1902E1005F17BA /* RedactNoteViewController.swift in Sources */,
 				ED8409412B0D20FD00AD0491 /* ViewController.swift in Sources */,
 				ED84093D2B0D20FD00AD0491 /* AppDelegate.swift in Sources */,
 				ED6C0FFE2B1507BF0029D524 /* NoteFB.swift in Sources */,

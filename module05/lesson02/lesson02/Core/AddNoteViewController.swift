@@ -55,8 +55,7 @@ class AddNoteViewController: UIViewController {
 		button.addTarget(nil, action: #selector(addNode), for: .touchUpInside)
 		
 		return button
-	}()
-	
+	}()	
 	
 	// MARK: - Load
 
@@ -97,6 +96,8 @@ class AddNoteViewController: UIViewController {
 	}
 
 }
+
+// MARK: - Extension
 
 extension UITextField {
 	func addLeftPadding(_ padding: CGFloat) {

@@ -93,6 +93,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let viewController = NoteViewController(note: noteData[indexPath.row])
+		
+		navigationController?.pushViewController(viewController, animated: true)
+	}
+	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			serviceFB.deleteNote(noteID: noteData[indexPath.row].id)
