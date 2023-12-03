@@ -27,9 +27,19 @@
   - Пустые поля при первом запуске.
   - Кнопка "Ввести данные" для перехода на второй экран.
 
+<div>
+  <img src="Assets/01.png" alt="01" height="500">
+</div>
+
 - **SecondViewController:**
-  - 4 `UITextField` для ввода и редактирования данных.
+  - Поля `UITextField` для ввода и редактирования данных.
   - Кнопка "Сохранить", сохраняющая введенные данные и возвращающая на главную страницу.
+
+<div>
+  <img src="Assets/02.png" alt="02" height="500" style="margin-right: 30px;">
+  <img src="Assets/03.png" alt="03" height="500" style="margin-right: 30px;">
+  <img src="Assets/04.png" alt="01" height="500">
+</div>
 
 ## Использование делегатов
 
