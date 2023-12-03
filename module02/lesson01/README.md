@@ -32,10 +32,10 @@
 4. **Выключен (Off):** Светофор выключен.
 
 <div>
-  <img src="Assets/02.png" alt="02" width="125" height="100" style="margin-right: 10px;">
-  <img src="Assets/03.png" alt="03" width="125" height="100" style="margin-right: 10px;">
-  <img src="Assets/04.png" alt="04" width="125" height="100" style="margin-right: 10px;">
-  <img src="Assets/01.png" alt="01" width="125" height="100">
+  <img src="Assets/02.png" alt="02" height="200" style="margin-right: 10px;">
+  <img src="Assets/03.png" alt="03" height="200" style="margin-right: 10px;">
+  <img src="Assets/04.png" alt="04" height="200" style="margin-right: 10px;">
+  <img src="Assets/01.png" alt="01" height="200">
 </div>
 
 ## Изученные концепции
