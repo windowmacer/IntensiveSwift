@@ -29,8 +29,24 @@
   - Отображение списка статей в виде таблицы.
   - Возможность добавления новых статей с помощью кнопки в правом верхнем углу.
 
+<div>
+  <img src="Assets/01.png" alt="01" height="500">
+</div>
+
+Добавление новой статьи:
+
+<div>
+  <img src="Assets/04.png" alt="03" height="500" style="margin-right: 30px;">
+  <img src="Assets/05.png" alt="01" height="500">
+</div>
+
 - **Статья:**
   - Просмотр подробной информации о выбранной статье.
+
+<div>
+  <img src="Assets/02.png" alt="03" height="500" style="margin-right: 30px;">
+  <img src="Assets/03.png" alt="01" height="500">
+</div>
 
 ## Запуск проекта
 
