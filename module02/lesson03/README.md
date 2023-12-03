@@ -28,7 +28,7 @@
   - Кнопка "Ввести данные" для перехода на второй экран.
 
 <div>
-  <img src="Assets/01.png" alt="01" height="500" style="margin-left: 30px;">
+  <img src="Assets/01.png" alt="01" height="500">
 </div>
 
 - **SecondViewController:**
