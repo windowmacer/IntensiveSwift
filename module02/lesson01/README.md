@@ -31,7 +31,7 @@
 3. **Зеленый свет (Green):** Разрешено движение.
 4. **Выключен (Off):** Светофор выключен.
 
-![Пример изображения](./Assets/Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-05 at 14.20.05.png)
+![Alt текст](module02/lesson01/Assets/Simulator%20Screenshot%20-%20iPhone%20SE%20(3rd%20generation)%20-%202023-11-05%20at%2014.20.05.png)
 
 
 ## Изученные концепции
