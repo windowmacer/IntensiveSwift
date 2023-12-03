@@ -27,9 +27,9 @@
 - Добавление нового факта в список при нажатии на кнопку "Добавить факт".
 
 <div>
-  <img src="Assets/01.png" alt="02" height="300" style="margin-right: 10px;">
-  <img src="Assets/02.png" alt="03" height="300" style="margin-right: 10px;">
-  <img src="Assets/03.png" alt="01" height="300">
+  <img src="Assets/01.png" alt="02" height="500" style="margin-right: 30px;">
+  <img src="Assets/02.png" alt="03" height="500" style="margin-right: 30px;">
+  <img src="Assets/03.png" alt="01" height="500">
 </div>
 
 ## Жизненный цикл UIViewController
