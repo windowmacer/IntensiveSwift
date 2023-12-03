@@ -31,8 +31,12 @@
 3. **Зеленый свет (Green):** Разрешено движение.
 4. **Выключен (Off):** Светофор выключен.
 
-![125/100](Assets/02.png) ![125/100](Assets/03.png)
-![125/100](Assets/04.png) ![125/100](Assets/01.png)
+<div>
+  <img src="Assets/02.png" alt="02" width="125" height="100" style="margin-right: 10px;">
+  <img src="Assets/03.png" alt="03" width="125" height="100" style="margin-right: 10px;">
+  <img src="Assets/04.png" alt="04" width="125" height="100" style="margin-right: 10px;">
+  <img src="Assets/01.png" alt="01" width="125" height="100">
+</div>
 
 ## Изученные концепции
 
