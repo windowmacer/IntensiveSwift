@@ -32,6 +32,12 @@
   - Прокрутка слайдера вправо или влево для перехода между историями.
   - Использование UIPageControl для отображения прогрессии истории.
 
+<div>
+  <img src="Assets/01.png" alt="02" height="500" style="margin-right: 30px;">
+  <img src="Assets/02.png" alt="03" height="500" style="margin-right: 30px;">
+  <img src="Assets/03.png" alt="01" height="500">
+</div>
+
 ## Запуск проекта
 
 Для запуска проекта выполните следующие шаги:
